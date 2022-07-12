@@ -1,19 +1,20 @@
-const http = require("http");
+// npm - global command, comes with node
+// npm --version
 
-const server = http.createServer((req,res)=>{
-    console.log(req);
-    if (req.url === "/") {
-        res.end("welcome to our home page")
-    }
-    if (req.url === "/about") {
-        res.end("here is our short history")
-    }
-    res.end(`<h1>OOps!</h1>
-    <p>We cannot seem to find the page you are looking for</p>\
-    
-    <a href="/">back home</a>`)
-    // res.write("Welcome to our home page")
-    // res.end()
-})
-// localhost:5000
-server.listen(5000)
+// local dependency - use it only in this particular project
+// npm i <packageName>
+
+// global dependency - use it in any project
+// npm install -g <packageName>
+// sudo npm install -g <packageName> (mac)
+
+// package.json - manifest file (store important info about project/package)
+// manual approach (create package.json in the root, create properties etc)
+// npm init (step by step, press enter to skip)
+// npm init -i (everything default)
+
+const _ = require("lodash")
+
+const items = [1, [2, [3, [4]]]]
+const newItems = _.flattenDeep(items)
+console.log(newItems);
