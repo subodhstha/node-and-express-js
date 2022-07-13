@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/subodhstha/node-and-express-js#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
