@@ -22,9 +22,9 @@ const {readFile, outputFile} = require("fs-extra").promises
 
 const start = async() => {
     try {
-        const first = await readFile("../../content/first.txt", "utf8")
-        const second = await readFile("../../content/second.txt", "utf8")
-        await outputFile("../../content/result.txt",`This is data: ${first} ${second}`,{flag:"a"})
+        const first = await readFile("./1-node-tutorial/content/first.txt", "utf8")
+        const second = await readFile("./1-node-tutorial/content/second.txt", "utf8")
+        await outputFile("./1-node-tutorial/content/result.txt",`This is data: ${first} ${second}`,{flag:"a"})
         console.log(first,second);
     } catch (error) {
         console.log(error);
