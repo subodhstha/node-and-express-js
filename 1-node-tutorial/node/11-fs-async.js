@@ -1,4 +1,3 @@
-// error
 const {readFile, outputFile} = require("fs-extra")
 
 console.log("start");

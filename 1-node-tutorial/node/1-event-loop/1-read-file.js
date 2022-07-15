@@ -1,7 +1,7 @@
-const {readFile} = require("fs")
+const {readFile} = require("fs-extra")
 console.log("Started a first task");
 
-readFile("../content/first.txt", "utf8", (err, result) =>{
+readFile("./content/first.txt", "utf8", (err, result) =>{
     if (err) {
         console.log(err);
         return

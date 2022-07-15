@@ -1,4 +1,3 @@
-// error
 const {readFileSync,outputFileSync} = require("fs-extra")
 
 console.log("start")

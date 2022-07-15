@@ -1,7 +1,7 @@
-const {readFile, writeFile} = require("fs").promises
+const {readFile, outputFile} = require("fs-extra").promises
 // const util = require('util');
 // const readFilePromise = util.promisify(readFile)
-// const writeFilePromise = util.promisify(writeFile)
+// const outputFilePromise = util.promisify(outputFile)
 
 
 // const getText = (path) =>{
@@ -22,9 +22,9 @@ const {readFile, writeFile} = require("fs").promises
 
 const start = async() => {
     try {
-        const first = await readFile("../content/first.txt", "utf8")
-        const second = await readFile("../content/second.txt", "utf8")
-        await writeFile("../content/result.txt",`This is data: ${first} ${second}`,{flag:"a"})
+        const first = await readFile("D:/node-and-express-js/1-node-tutorial/content/first.txt", "utf8")
+        const second = await readFile("D:/node-and-express-js/1-node-tutorial/content/second.txt", "utf8")
+        await outputFile("D:/node-and-express-js/1-node-tutorial/content/result.txt",`This is data: ${first} ${second}`,{flag:"a"})
         console.log(first,second);
     } catch (error) {
         console.log(error);
@@ -35,7 +35,7 @@ const start = async() => {
 //     try {
 //         const first = await readFilePromise("../content/first.txt", "utf8")
 //         const second = await readFilePromise("../content/second.txt", "utf8")
-//         await writeFilePromise("../content/result.txt",`This is data: ${first} ${second}`)
+//         await outputFilePromise("../content/result.txt",`This is data: ${first} ${second}`)
 //         console.log(first,second);
 //     } catch (error) {
 //         console.log(error);
