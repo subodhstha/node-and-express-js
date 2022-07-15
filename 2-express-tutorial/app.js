@@ -1,9 +1,16 @@
-const http = require("http")
-const server = http.createServer((req, res)=>{
-    res.writeHead(200,{"content-type":"text/html"})
-    res.write("<h1>Home Page</h1>")
-    // res.end("<h1>Home Page</>")
-    res.end()
+const express = require("express")
+const app = express()
+const path = require("path");
+
+app.use(express.static("2-express-tutorial/public"))
+
+app.get("/",(req,res)=>{
+    res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"))
+})
+app.get("*",(req,res)=>{
+    res.status(404).send("resources not found")
 })
 
-server.listen(5000)
+app.listen(5000, ()=>{
+    console.log("server is listening");
+})
