@@ -1,52 +1,29 @@
-const express = require("express")
-const app = express()
-const people = require("./routers/people.js")
-const auth = require("./routers/auth")
+let {people} = require("../data")
 
-// static assets
-app.use(express.static("2-express-tutorial/methods-public"))
-
-// parse form data
-app.use(express.urlencoded({extended: false}))
-// parse json
-app.use(express.json())
-
-app.use("/api/people",people)
-app.use("/login",auth)
-
-app.get("/api/people",(req,res)=>{
+const getPeople = (req,res)=>{
     res.status(200).json({success:true,data:people})
-})
+}
 
-
-app.post("/api/people",(req, res)=>{
+const createPerson = (req, res)=>{
     const {name} = req.body
     if(!name){
         return res.status(400).json({success:false,msg:"please provide name value"})
     }
     res.status(201).send({success:true,person:name})
-})
+}
 
-// app.post("/api/postman/people",(req,res)=>{
-//     const {name} = req.body
-//     if(!name){
-//         return res.status(400).json({success:false,msg:"please provide name value"})
-//     }
-//     res.status(201).send({success:true,date:[...people, name]})
-// })
-
-app.post("/api/people/postman",(req,res)=>{
+const createPersonPostman = (req,res)=>{
     const {name} = req.body
     if(!name){
         return res.status(400).json({success:false,msg:"please provide name value"})
     }
     res.status(201).send({success:true,date:[...people, name]})
-})
+}
 
-
-app.put("/api/people/:id", (req,res)=>{
+const updatePerson = (req,res)=>{
     const {id} = req.params
     const {name} = req.body
+
     const person = people.find((person)=> person.id === Number(id))
 
     if(!person){
@@ -61,9 +38,9 @@ app.put("/api/people/:id", (req,res)=>{
     })
 
     res.status(200).json({success : true, data : newPeople})
-})
+}
 
-app.delete("/api/people/:id", (req, res)=>{
+const deletePerson =  (req, res)=>{
     const person = people.find((person)=> person.id === Number(req.params.id))
 
     if(!person){
@@ -71,8 +48,12 @@ app.delete("/api/people/:id", (req, res)=>{
     }
     const newPeople = people.filter((person)=> person.id !== Number(req.params.id))
     return res.status(200).json({success:true, data: newPeople})
-})
+}
 
-app.listen(5000, ()=>{
-    console.log(("Server is listening on port 5000"));
-})
+module.exports = {
+    getPeople,
+    createPerson,
+    createPersonPostman,
+    updatePerson,
+    deletePerson
+}
