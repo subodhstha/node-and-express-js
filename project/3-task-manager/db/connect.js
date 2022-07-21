@@ -12,4 +12,4 @@ const connectDB = (url) =>{
     })
 }
 
-module.export = connectDB
+module.exports = connectDB
