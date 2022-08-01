@@ -12,13 +12,14 @@ app.use(express.static("./public"))
 app.use(express.json())
 
 app.use(notFoundMiddleware)
-app.use(express.json())
+app.use(errorHandlerMiddleware)
 
 const port = process.env.PORT || 3000
 
 const start = async () =>{
     try {
-        app.listen(port, console.log(`server is listening on port ${port}`)
+        app.listen(port,()=>
+            console.log(`server is listening on port ${port}`)
         )
     } catch (error) {
         console.log(error);
