@@ -1,5 +1,5 @@
 {
-  "name": "06-jobs-api",
+  "name": "6-jobs-api",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -11,21 +11,22 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "express-rate-limit": "^5.3.0",
-    "helmet": "^4.6.0",
-    "http-status-codes": "^2.1.4",
-    "joi": "^17.4.0",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^6.0.0",
+    "http-status-codes": "^2.2.0",
+    "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.2",
+    "mongoose": "^6.7.2",
+    "npm-cli": "^0.1.0",
     "rate-limiter": "^0.2.0",
-    "swagger-ui-express": "^4.1.6",
+    "swagger-ui-express": "^4.6.0",
     "xss-clean": "^0.1.1",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.20"
   }
 }
